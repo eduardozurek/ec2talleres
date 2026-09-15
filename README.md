@@ -1,4 +1,4 @@
-# Instalación de perf
+# Instalación de perf y time
 
 Después de crear el codespace, ejecute el siguiente comando:
 
