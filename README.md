@@ -6,5 +6,5 @@ chmod +x instalar_perf.sh
 
 Finalmente ejecútelo con:
 
-./instalar_perf.sh
+source instalar_perf.sh
 
