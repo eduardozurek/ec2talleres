@@ -27,4 +27,6 @@ echo "=== Configurando perf_event_paranoid ==="
 sudo sysctl -w kernel.perf_event_paranoid=-1
 sudo ln -sf /usr/lib/linux-tools-6.8.0-139/perf /usr/local/bin/perf
 echo
+echo "=== Instalando time ==="
+sudo apt install -y time
 echo "Instalación terminada."
