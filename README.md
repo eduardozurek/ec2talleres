@@ -1,10 +1,6 @@
 # Instalación de perf
 
-Después de crear el codespace, dele permiso de ejecución a instalar_perf.sh:
-
-chmod +x instalar_perf.sh
-
-Finalmente ejecútelo con:
+Después de crear el codespace, ejecútelo con:
 
 source instalar_perf.sh
 
