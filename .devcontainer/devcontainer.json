@@ -1,0 +1,13 @@
+{
+    "name": "EC2 Performance Lab",
+
+    "image": "mcr.microsoft.com/devcontainers/base:noble",
+
+    "features": {
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "3.12"
+        }
+    },
+
+    "postCreateCommand": "sudo apt update && sudo apt install -y time linux-tools-common linux-tools-generic"
+}
