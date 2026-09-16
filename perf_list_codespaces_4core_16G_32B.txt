@@ -1,0 +1,226 @@
+
+tool:
+  duration_time
+  user_time
+  system_time
+  msr/aperf/                                         [Kernel PMU event]
+  msr/mperf/                                         [Kernel PMU event]
+  msr/tsc/                                           [Kernel PMU event]
+  rNNN                                               [Raw hardware event descriptor]
+  cpu/t1=v1[,t2=v2,t3 ...]/modifier                  [Raw hardware event descriptor]
+       [(see 'man perf-list' on how to encode it)]
+  mem:<addr>[/len][:access]                          [Hardware breakpoint]
+
+Metric Groups:
+
+No_group:
+  ic_fetch_miss_ratio
+       [Instruction cache miss ratio for all fetches. An instruction cache
+        miss will not be counted by this metric if it is an OC hit]
+  macro_ops_retired
+       [Macro-ops retired]
+  op_cache_fetch_miss_ratio
+       [Op cache miss ratio for all fetches]
+  sse_avx_stalls
+       [Mixed SSE/AVX stalls]
+  total_dispatch_slots
+       [Total dispatch slots (upto 6 instructions can be dispatched in each
+        cycle)]
+
+PipelineL1:
+  backend_bound
+       [Fraction of dispatch slots that remained unused because of backend
+        stalls]
+  bad_speculation
+       [Fraction of dispatched ops that did not retire]
+  frontend_bound
+       [Fraction of dispatch slots that remained unused because the frontend
+        did not supply enough instructions/ops]
+  retiring
+       [Fraction of dispatch slots used by ops that retired]
+  smt_contention
+       [Fraction of dispatch slots that remained unused because the other
+        thread was selected]
+
+PipelineL2:
+  backend_bound_cpu
+       [Fraction of dispatch slots that remained unused because of stalls not
+        related to the memory subsystem]
+  backend_bound_memory
+       [Fraction of dispatch slots that remained unused because of stalls due
+        to the memory subsystem]
+  bad_speculation_mispredicts
+       [Fraction of dispatched ops that were flushed due to branch mispredicts]
+  bad_speculation_pipeline_restarts
+       [Fraction of dispatched ops that were flushed due to pipeline restarts
+        (resyncs)]
+  frontend_bound_bandwidth
+       [Fraction of dispatch slots that remained unused because of a bandwidth
+        bottleneck in the frontend (such as decode or op cache fetch
+        bandwidth)]
+  frontend_bound_latency
+       [Fraction of dispatch slots that remained unused because of a latency
+        bottleneck in the frontend (such as instruction cache or TLB misses)]
+  retiring_fastpath
+       [Fraction of dispatch slots used by fastpath ops that retired]
+  retiring_microcode
+       [Fraction of dispatch slots used by microcode ops that retired]
+
+backend_bound_group:
+  backend_bound_cpu
+       [Fraction of dispatch slots that remained unused because of stalls not
+        related to the memory subsystem]
+  backend_bound_memory
+       [Fraction of dispatch slots that remained unused because of stalls due
+        to the memory subsystem]
+
+bad_speculation_group:
+  bad_speculation_mispredicts
+       [Fraction of dispatched ops that were flushed due to branch mispredicts]
+  bad_speculation_pipeline_restarts
+       [Fraction of dispatched ops that were flushed due to pipeline restarts
+        (resyncs)]
+
+branch_prediction:
+  branch_misprediction_ratio
+       [Execution-time branch misprediction ratio (non-speculative)]
+
+data_fabric:
+  dram_read_data_for_local_processor
+       [DRAM read data for local processor]
+  dram_read_data_for_remote_processor
+       [DRAM read data for remote processor]
+  dram_write_data_for_local_processor
+       [DRAM write data for local processor]
+  dram_write_data_for_remote_processor
+       [DRAM write data for remote processor]
+  local_socket_inbound_data_to_cpu
+       [Local socket inbound data to the CPU (e.g. read data)]
+  local_socket_outbound_data_from_all_links
+       [Outbound data from all links (local socket)]
+  local_socket_outbound_data_from_cpu
+       [Local socket outbound data from the CPU (e.g. write data)]
+  local_socket_upstream_dma_read_data
+       [Local socket upstream DMA read data]
+  local_socket_upstream_dma_write_data
+       [Local socket upstream DMA write data]
+  remote_socket_inbound_data_to_cpu
+       [Remote socket inbound data to the CPU (e.g. read data)]
+  remote_socket_outbound_data_from_cpu
+       [Remote socket outbound data from the CPU (e.g. write data)]
+  remote_socket_upstream_dma_read_data
+       [Remote socket upstream DMA read data]
+  remote_socket_upstream_dma_write_data
+       [Remote socket upstream DMA write data]
+
+decoder:
+  macro_ops_dispatched
+       [Macro-ops dispatched]
+
+frontend_bound_group:
+  frontend_bound_bandwidth
+       [Fraction of dispatch slots that remained unused because of a bandwidth
+        bottleneck in the frontend (such as decode or op cache fetch
+        bandwidth)]
+  frontend_bound_latency
+       [Fraction of dispatch slots that remained unused because of a latency
+        bottleneck in the frontend (such as instruction cache or TLB misses)]
+
+l1_dcache:
+  all_l1_data_cache_fills
+       [All L1 data cache fills]
+  l1_data_cache_fills_from_different_ccx
+       [L1 data cache fills from another CCX cache in any NUMA node]
+  l1_data_cache_fills_from_memory
+       [L1 data cache fills from DRAM or MMIO in any NUMA node]
+  l1_data_cache_fills_from_remote_node
+       [L1 data cache fills from a different NUMA node]
+  l1_data_cache_fills_from_same_ccx
+       [L1 data cache fills from within the same CCX]
+  l1_demand_data_cache_fills_from_far_cache
+       [L1 demand data cache fills from another CCX cache in a different NUMA
+        node]
+  l1_demand_data_cache_fills_from_far_memory
+       [L1 demand data cache fills from DRAM or MMIO in a different NUMA node]
+  l1_demand_data_cache_fills_from_local_l2
+       [L1 demand data cache fills from local L2 cache]
+  l1_demand_data_cache_fills_from_near_cache
+       [L1 demand data cache fills from another CCX cache in the same NUMA
+        node]
+  l1_demand_data_cache_fills_from_near_memory
+       [L1 demand data cache fills from DRAM or MMIO in the same NUMA node]
+  l1_demand_data_cache_fills_from_same_ccx
+       [L1 demand data cache fills from within the same CCX]
+
+l2_cache:
+  all_l2_cache_accesses
+       [All L2 cache accesses]
+  all_l2_cache_hits
+       [All L2 cache hits]
+  all_l2_cache_misses
+       [All L2 cache misses]
+  l2_cache_accesses_from_l1_dc_misses
+       [L2 cache accesses from L1 data cache misses (including prefetch)]
+  l2_cache_accesses_from_l1_ic_misses
+       [L2 cache accesses from L1 instruction cache misses (including
+        prefetch)]
+  l2_cache_accesses_from_l2_hwpf
+       [L2 cache accesses from L2 cache hardware prefetcher]
+  l2_cache_hits_from_l1_dc_miss
+       [L2 cache hits from L1 data cache misses]
+  l2_cache_hits_from_l1_ic_miss
+       [L2 cache hits from L1 instruction cache misses]
+  l2_cache_hits_from_l2_hwpf
+       [L2 cache hits from L2 cache hardware prefetcher]
+  l2_cache_misses_from_l1_dc_miss
+       [L2 cache misses from L1 data cache misses]
+  l2_cache_misses_from_l1_ic_miss
+       [L2 cache misses from L1 instruction cache misses]
+  l2_cache_misses_from_l2_hwpf
+       [L2 cache misses from L2 cache hardware prefetcher]
+
+l3_cache:
+  l3_cache_accesses
+       [L3 cache accesses]
+  l3_misses
+       [L3 misses (including cacheline state change requests)]
+  l3_read_miss_latency
+       [Average L3 read miss latency (in core clocks)]
+
+memory_controller:
+  umc_activate_cmd_rate
+       [Memory controller ACTIVATE command rate]
+  umc_cas_cmd_rate
+       [Memory controller CAS command rate]
+  umc_cas_cmd_read_ratio
+       [Ratio of memory controller CAS commands for reads]
+  umc_cas_cmd_write_ratio
+       [Ratio of memory controller CAS commands for writes]
+  umc_data_bus_utilization
+       [Memory controller data bus utilization]
+  umc_mem_bandwidth
+       [Estimated combined memory bandwidth]
+  umc_mem_read_bandwidth
+       [Estimated memory read bandwidth]
+  umc_mem_write_bandwidth
+       [Estimated memory write bandwidth]
+  umc_precharge_cmd_rate
+       [Memory controller PRECHARGE command rate]
+
+retiring_group:
+  retiring_fastpath
+       [Fraction of dispatch slots used by fastpath ops that retired]
+  retiring_microcode
+       [Fraction of dispatch slots used by microcode ops that retired]
+
+tlb:
+  all_tlbs_flushed
+       [All TLBs flushed]
+  l1_dtlb_misses
+       [L1 data TLB misses]
+  l1_itlb_misses
+       [L1 instruction TLB misses]
+  l2_dtlb_misses
+       [L2 data TLB misses and data page walks]
+  l2_itlb_misses
+       [L2 instruction TLB misses and instruction page walks]
