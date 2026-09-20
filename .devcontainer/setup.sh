@@ -17,4 +17,4 @@ sudo ln -sf \
     /usr/local/bin/perf
 
 # Paquetes Python
-python3 -m pip install -r .devcontainer/requirements.txt
+python3 -m pip install -r .devcontainer/python_libraries_requirements.txt
