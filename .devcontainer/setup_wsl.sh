@@ -20,4 +20,4 @@ sudo ln -sf \
 sudo apt install python3-venv -y
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r .devcontainer/python_libraries_requirements.txt
+pip install -r python_libraries_requirements.txt
