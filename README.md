@@ -1,6 +1,3 @@
 # Instalación de perf y time
 
-Después de crear el codespace, ejecute el siguiente comando:
-
-source instalar_perf_y_time.sh
-
+En el folder .devcontainer se encuentran los archivos para configurar automáticamente un nuevo Codespace.
